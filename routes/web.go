@@ -2,6 +2,7 @@ package routes
 
 import (
 	"setup/controllers"
+	contactcontroller "setup/controllers/ContactController"
 	topiccontroller "setup/controllers/TopicController"
 
 	"github.com/labstack/echo/v4"
@@ -15,15 +16,11 @@ func Web() {
 		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAccept},
 	}))
 	Network.GET("/index", controllers.Index)
-	//Home Page
+	//Topics
 	Network.GET("/getAllTopics", topiccontroller.GetAllTopic)
 	Network.GET("/getSingleTopic", topiccontroller.GetSingleTopic)
-	//forgot password items
-	//it doesnt work now
-	/* Network.GET("/accept-password", func(c echo.Context) error {
-		return c.JSON(http.StatusOK, "")
-	})
-	Network.POST("/change-password", func(c echo.Context) error {
-		return c.JSON(http.StatusOK, "")
-	}) */
+	
+	//Contacts
+	Network.POST("/createContact",contactcontroller.CreateContact)
+	
 }
