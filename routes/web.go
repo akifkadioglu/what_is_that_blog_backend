@@ -17,10 +17,11 @@ func Web() {
 	}))
 	Network.GET("/index", controllers.Index)
 	//Topics
+	Network.GET("/searchTopics", topiccontroller.SearchTopics)
 	Network.GET("/getAllTopics", topiccontroller.GetAllTopic)
 	Network.GET("/getSingleTopic", topiccontroller.GetSingleTopic)
-	
+
 	//Contacts
-	Network.POST("/createContact",contactcontroller.CreateContact)
-	
+	Network.POST("/createContact", contactcontroller.CreateContact)
+
 }
